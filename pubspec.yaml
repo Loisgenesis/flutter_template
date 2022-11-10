@@ -1,0 +1,21 @@
+name: owwn_coding_challenge
+description: OWWN Coding Challenge.
+publish_to: 'none'
+
+version: 2.0.0+2
+
+environment:
+  sdk: ">=2.18.2 <3.0.0"
+  flutter: ">=3.3.6"
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  lint: ^1.10.0
+
+flutter:
+  uses-material-design: true
