@@ -3,12 +3,8 @@
   "loginLoadingTitle": "Logging In",
   "loginLoadingSubTitle": "This might take a few seconds",
   "login": "Login",
-  "usernameLabel": "Username",
-  "usernameHint": "Your Username",
-  "emailLoginPasswordHint" : "Your password",
-  "emailLoginPasswordLabel" : "Password",
   "emailLoginEmailLabel": "Email address",
   "emailLoginEmailHint": "Your email address",
-  "loginPageSignupText": "First time here?",
-  "loginPageSignupLink": "Sign up here"
+  "tryAgain": "Try Again",
+  "retry": "Retry"
 }

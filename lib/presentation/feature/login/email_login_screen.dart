@@ -6,11 +6,11 @@ import 'package:owwn_coding_challenge/injection/injector.dart';
 import 'package:owwn_coding_challenge/presentation/app_router.dart';
 import 'package:owwn_coding_challenge/presentation/common/bloc/base_status.dart';
 import 'package:owwn_coding_challenge/presentation/common/navigation/navigation_manager.dart';
+import 'package:owwn_coding_challenge/presentation/feature/home/home_screen.dart';
 import 'package:owwn_coding_challenge/presentation/feature/login/email_login_cubit.dart';
-import 'package:owwn_coding_challenge/presentation/feature/onboarding/onboarding_screen.dart';
 import 'package:owwn_coding_challenge/presentation/resources/resources.dart';
 import 'package:owwn_coding_challenge/presentation/widgets/background_focus_scope_dismisser.dart';
-import 'package:owwn_coding_challenge/presentation/widgets/loading_screen.dart';
+import 'package:owwn_coding_challenge/presentation/widgets/app_state/loading_app_state.dart';
 import 'package:owwn_coding_challenge/presentation/widgets/primary_button.dart';
 
 class EmailLoginScreen extends StatefulWidget {
@@ -34,7 +34,7 @@ class _EmailLoginScreenState extends State<EmailLoginScreen> {
           if (state.status.isLoading) {
             injector.get<NavigationManager>().push(
                   MaterialPageRoute(
-                    builder: (_) => LoadingScreen(
+                    builder: (_) => LoadingAppState(
                       title: 'loginLoadingTitle'.tr(),
                       subtitle: 'loginLoadingTitle'.tr(),
                     ),
@@ -43,7 +43,7 @@ class _EmailLoginScreenState extends State<EmailLoginScreen> {
           } else if (state.status.isSuccess) {
             injector.get<NavigationManager>().pushAndRemoveUntil(
                   MaterialPageRoute(
-                    builder: (context) => const OnBoardingScreen(),
+                    builder: (context) => const HomeScreen(),
                   ),
                   (Route<dynamic> route) => false,
                 );

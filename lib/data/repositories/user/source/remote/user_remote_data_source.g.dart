@@ -1,11 +1,15 @@
+// GENERATED CODE - DO NOT MODIFY BY HAND
+
+part of 'user_remote_data_source.dart';
+
 // **************************************************************************
 // RetrofitGenerator
 // **************************************************************************
 
 // ignore_for_file: unnecessary_brace_in_string_interps,no_leading_underscores_for_local_identifiers
 
-class _UsersRemoteDataSource implements UsersRemoteDataSource {
-  _UsersRemoteDataSource(
+class _UserRemoteDataSource implements UserRemoteDataSource {
+  _UserRemoteDataSource(
     this._dio, {
     this.baseUrl,
   });
@@ -13,30 +17,6 @@ class _UsersRemoteDataSource implements UsersRemoteDataSource {
   final Dio _dio;
 
   String? baseUrl;
-
-  @override
-  Future<LoginResponse> emailPasswordLogin(body) async {
-    const _extra = <String, dynamic>{};
-    final queryParameters = <String, dynamic>{};
-    final _headers = <String, dynamic>{};
-    final _data = <String, dynamic>{};
-    _data.addAll(body.toJson());
-    final _result = await _dio
-        .fetch<Map<String, dynamic>>(_setStreamType<LoginResponse>(Options(
-      method: 'POST',
-      headers: _headers,
-      extra: _extra,
-    )
-            .compose(
-              _dio.options,
-              '/auth',
-              queryParameters: queryParameters,
-              data: _data,
-            )
-            .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
-    final value = LoginResponse.fromJson(_result.data!);
-    return value;
-  }
 
   @override
   Future<GetUsersResponse> getListOfUsers() async {

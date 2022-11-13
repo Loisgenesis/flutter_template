@@ -4,5 +4,7 @@
   "loginLoadingSubTitle": "This might take a few seconds",
   "login": "Login",
   "emailLoginEmailLabel": "Email address",
-  "emailLoginEmailHint": "Your email address"
+  "emailLoginEmailHint": "Your email address",
+  "tryAgain": "Try Again",
+  "retry": "Retry"
 }

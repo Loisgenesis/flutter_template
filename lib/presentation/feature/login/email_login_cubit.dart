@@ -58,7 +58,7 @@ class EmailLoginCubit extends Cubit<EmailLoginState> {
           status: const BaseStatus.success(),
         ),
       );
-    } catch (e, stack) {
+    } catch (e) {
       emit(
         state.copyWith(
           status: BaseStatus.failure(ResponseErrors.fromDioError(e)),

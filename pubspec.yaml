@@ -26,6 +26,7 @@ dependencies:
   json_annotation: ^4.7.0
   auto_size_text: ^3.0.0
   bloc_test: ^9.0.2
+  grouped_list: ^5.1.2
 
 dev_dependencies:
   flutter_test:

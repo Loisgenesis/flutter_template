@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:owwn_coding_challenge/presentation/resources/resources.dart';
 
-class LoadingScreen extends StatelessWidget {
-  const LoadingScreen({
+class LoadingAppState extends StatelessWidget {
+  const LoadingAppState({
     Key? key,
     required this.title,
     required this.subtitle,

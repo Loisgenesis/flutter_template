@@ -4,10 +4,10 @@ import 'package:owwn_coding_challenge/domain/common/use_case.dart';
 import 'package:owwn_coding_challenge/domain/entities/responses/user/get_users_response.dart';
 
 @injectable
-class GetMeUseCase extends OutputUseCase<Future<GetUsersResponse>> {
+class GetUsersCase extends OutputUseCase<Future<GetUsersResponse>> {
   final UserRepository _userRepository;
 
-  GetMeUseCase(this._userRepository);
+  GetUsersCase(this._userRepository);
 
   @override
   Future<GetUsersResponse> run() async {

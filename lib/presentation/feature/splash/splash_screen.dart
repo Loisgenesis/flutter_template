@@ -5,8 +5,8 @@ import 'package:owwn_coding_challenge/presentation/app_router.dart';
 import 'package:owwn_coding_challenge/presentation/common/bloc/authorization_cubit.dart';
 import 'package:owwn_coding_challenge/presentation/common/bloc/base_status.dart';
 import 'package:owwn_coding_challenge/presentation/common/navigation/navigation_manager.dart';
+import 'package:owwn_coding_challenge/presentation/feature/home/home_screen.dart';
 import 'package:owwn_coding_challenge/presentation/feature/login/email_login_screen.dart';
-import 'package:owwn_coding_challenge/presentation/feature/onboarding/onboarding_screen.dart';
 import 'package:owwn_coding_challenge/presentation/resources/resources.dart';
 
 class SplashScreen extends StatefulWidget {
@@ -69,7 +69,7 @@ class _SplashScreenState extends State<SplashScreen> {
       } else {
         navigationManager.pushAndRemoveUntil(
           MaterialPageRoute(
-            builder: (context) => const OnBoardingScreen(),
+            builder: (context) => const HomeScreen(),
           ),
           (Route<dynamic> route) => false,
         );
