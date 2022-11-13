@@ -10,7 +10,7 @@ class MetaInterceptor extends InterceptorsWrapper {
 
   @override
   Future<void> onRequest(
-      RequestOptions options, RequestInterceptorHandler handler) async {
+      RequestOptions options, RequestInterceptorHandler handler,) async {
     options.headers['Accept'] = 'application/json; charset=UTF-8';
     options.headers['content-type'] = 'application/json';
     options.headers['X-API-KEY'] = 'owwn-challenge-22bbdk';

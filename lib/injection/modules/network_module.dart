@@ -11,7 +11,7 @@ import 'package:owwn_coding_challenge/domain/api/api_config.dart';
 import 'package:owwn_coding_challenge/injection/injector.dart';
 
 class NetworkModule {
-   Future<void> inject() async {
+  Future<void> inject() async {
     injector.registerLazySingleton<Dio>(
       () {
         final Dio dio = Dio();

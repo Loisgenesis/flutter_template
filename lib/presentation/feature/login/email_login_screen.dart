@@ -66,12 +66,10 @@ class EmailLoginWidget extends StatefulWidget {
 
 class _EmailLoginWidgetState extends State<EmailLoginWidget> {
   final FocusNode _emailFocusNode = FocusNode();
-  final FocusNode _passwordFocusNode = FocusNode();
 
   @override
   void dispose() {
     _emailFocusNode.dispose();
-    _passwordFocusNode.dispose();
 
     super.dispose();
   }
@@ -135,7 +133,7 @@ class _EmailLoginWidgetState extends State<EmailLoginWidget> {
               padding: EdgeInsets.symmetric(
                 horizontal: 16,
                 vertical:
-                    MediaQuery.of(context).viewInsets.bottom == 0 ? 41 : 24,
+                    MediaQuery.of(context).viewInsets.bottom == 0 ? 40 : 24,
               ),
               child: PrimaryButton(
                 enabled: state.canSubmit && !state.status.isLoading,

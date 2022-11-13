@@ -3,7 +3,7 @@ import 'package:owwn_coding_challenge/presentation/feature/splash/splash_screen.
 
 /// Contains classes and helpers for navigation.
 class AppRouter {
-   PageRoute onGenerateRoute(RouteSettings settings) {
+  PageRoute onGenerateRoute(RouteSettings settings) {
     final args = settings.arguments;
     return args is ScreenRoute
         ? args.material()

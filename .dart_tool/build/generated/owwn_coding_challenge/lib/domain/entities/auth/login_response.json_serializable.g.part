@@ -4,12 +4,12 @@
 
 _$_LoginResponse _$$_LoginResponseFromJson(Map<String, dynamic> json) =>
     _$_LoginResponse(
-      token: json['token'] as String,
-      refreshToken: json['refreshToken'] as String,
+      access_token: json['access_token'] as String,
+      refresh_token: json['refresh_token'] as String,
     );
 
 Map<String, dynamic> _$$_LoginResponseToJson(_$_LoginResponse instance) =>
     <String, dynamic>{
-      'token': instance.token,
-      'refreshToken': instance.refreshToken,
+      'access_token': instance.access_token,
+      'refresh_token': instance.refresh_token,
     };

@@ -1,0 +1,8 @@
+{
+  "app_name": "Coding template",
+  "loginLoadingTitle": "Logging In",
+  "loginLoadingSubTitle": "This might take a few seconds",
+  "login": "Login",
+  "emailLoginEmailLabel": "Email address",
+  "emailLoginEmailHint": "Your email address"
+}

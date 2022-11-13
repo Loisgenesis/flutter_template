@@ -6,7 +6,6 @@ import 'package:owwn_coding_challenge/data/services/response_errors.dart';
 import 'package:owwn_coding_challenge/domain/entities/requests/email_request_model.dart';
 import 'package:owwn_coding_challenge/domain/usecases/login/email_login_use_case.dart';
 import 'package:owwn_coding_challenge/domain/validation/email.dart';
-import 'package:owwn_coding_challenge/extensions/extensions.dart';
 import 'package:owwn_coding_challenge/presentation/common/bloc/base_status.dart';
 
 part 'email_login_cubit.freezed.dart';
@@ -40,7 +39,7 @@ class EmailLoginCubit extends Cubit<EmailLoginState> {
         : const BaseStatus.inValid();
   }
 
-  void onLogin() {
+  Future<void> onLogin() async {
     if (state.status.isLoading) return;
 
     emit(
@@ -48,27 +47,23 @@ class EmailLoginCubit extends Cubit<EmailLoginState> {
         status: const BaseStatus.loading(),
       ),
     );
-
-    _emailPasswordLoginUseCase
-        .run(
-          EmailRequestModel.createModel(
-            email: state.email.value,
-          ),
-        )
-        .then(
-          (value) => emit(
-            state.copyWith(
-              status: const BaseStatus.success(),
-            ),
-          ),
-        )
-        .catchPrintError((e, s) {
-      e as ResponseErrors;
-      emit(
-        state.copyWith(
-          status: BaseStatus.failure(e),
+    try {
+      await _emailPasswordLoginUseCase.run(
+        EmailRequestModel.createModel(
+          email: state.email.value,
         ),
       );
-    });
+      emit(
+        state.copyWith(
+          status: const BaseStatus.success(),
+        ),
+      );
+    } catch (e, stack) {
+      emit(
+        state.copyWith(
+          status: BaseStatus.failure(ResponseErrors.fromDioError(e)),
+        ),
+      );
+    }
   }
 }

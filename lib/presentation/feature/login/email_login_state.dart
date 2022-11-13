@@ -2,7 +2,6 @@ part of 'email_login_cubit.dart';
 
 @freezed
 class EmailLoginState with _$EmailLoginState {
-
   factory EmailLoginState({
     required Email email,
     required BaseStatus status,

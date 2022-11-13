@@ -32,7 +32,6 @@ class _AppState extends State<App> {
       localizationsDelegates: context.localizationDelegates,
       supportedLocales: context.supportedLocales,
       locale: context.locale,
-
     );
   }
 }

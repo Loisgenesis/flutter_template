@@ -48,5 +48,4 @@ class NavigationManager {
   Future<bool>? maybePop<T>([T? value]) {
     return navigatorKey.currentState?.maybePop(value);
   }
-
 }

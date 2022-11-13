@@ -2,7 +2,6 @@ import 'package:dio/dio.dart';
 import 'package:owwn_coding_challenge/data/services/http_client/http_client.dart';
 import 'package:owwn_coding_challenge/data/services/response_errors.dart';
 
-
 /// Abstraction of the Dio http client class.
 class DioHttpClient extends HttpClient {
   DioHttpClient(this._dio);

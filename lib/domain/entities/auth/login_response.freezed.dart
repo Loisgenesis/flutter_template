@@ -20,8 +20,8 @@ LoginResponse _$LoginResponseFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$LoginResponse {
-  String get token => throw _privateConstructorUsedError;
-  String get refreshToken => throw _privateConstructorUsedError;
+  String get access_token => throw _privateConstructorUsedError;
+  String get refresh_token => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -35,7 +35,7 @@ abstract class $LoginResponseCopyWith<$Res> {
           LoginResponse value, $Res Function(LoginResponse) then) =
       _$LoginResponseCopyWithImpl<$Res, LoginResponse>;
   @useResult
-  $Res call({String token, String refreshToken});
+  $Res call({String access_token, String refresh_token});
 }
 
 /// @nodoc
@@ -51,17 +51,17 @@ class _$LoginResponseCopyWithImpl<$Res, $Val extends LoginResponse>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? token = null,
-    Object? refreshToken = null,
+    Object? access_token = null,
+    Object? refresh_token = null,
   }) {
     return _then(_value.copyWith(
-      token: null == token
-          ? _value.token
-          : token // ignore: cast_nullable_to_non_nullable
+      access_token: null == access_token
+          ? _value.access_token
+          : access_token // ignore: cast_nullable_to_non_nullable
               as String,
-      refreshToken: null == refreshToken
-          ? _value.refreshToken
-          : refreshToken // ignore: cast_nullable_to_non_nullable
+      refresh_token: null == refresh_token
+          ? _value.refresh_token
+          : refresh_token // ignore: cast_nullable_to_non_nullable
               as String,
     ) as $Val);
   }
@@ -75,7 +75,7 @@ abstract class _$$_LoginResponseCopyWith<$Res>
       __$$_LoginResponseCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String token, String refreshToken});
+  $Res call({String access_token, String refresh_token});
 }
 
 /// @nodoc
@@ -89,17 +89,17 @@ class __$$_LoginResponseCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? token = null,
-    Object? refreshToken = null,
+    Object? access_token = null,
+    Object? refresh_token = null,
   }) {
     return _then(_$_LoginResponse(
-      token: null == token
-          ? _value.token
-          : token // ignore: cast_nullable_to_non_nullable
+      access_token: null == access_token
+          ? _value.access_token
+          : access_token // ignore: cast_nullable_to_non_nullable
               as String,
-      refreshToken: null == refreshToken
-          ? _value.refreshToken
-          : refreshToken // ignore: cast_nullable_to_non_nullable
+      refresh_token: null == refresh_token
+          ? _value.refresh_token
+          : refresh_token // ignore: cast_nullable_to_non_nullable
               as String,
     ));
   }
@@ -108,19 +108,20 @@ class __$$_LoginResponseCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$_LoginResponse implements _LoginResponse {
-  const _$_LoginResponse({required this.token, required this.refreshToken});
+  const _$_LoginResponse(
+      {required this.access_token, required this.refresh_token});
 
   factory _$_LoginResponse.fromJson(Map<String, dynamic> json) =>
       _$$_LoginResponseFromJson(json);
 
   @override
-  final String token;
+  final String access_token;
   @override
-  final String refreshToken;
+  final String refresh_token;
 
   @override
   String toString() {
-    return 'LoginResponse(token: $token, refreshToken: $refreshToken)';
+    return 'LoginResponse(access_token: $access_token, refresh_token: $refresh_token)';
   }
 
   @override
@@ -128,14 +129,15 @@ class _$_LoginResponse implements _LoginResponse {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_LoginResponse &&
-            (identical(other.token, token) || other.token == token) &&
-            (identical(other.refreshToken, refreshToken) ||
-                other.refreshToken == refreshToken));
+            (identical(other.access_token, access_token) ||
+                other.access_token == access_token) &&
+            (identical(other.refresh_token, refresh_token) ||
+                other.refresh_token == refresh_token));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, token, refreshToken);
+  int get hashCode => Object.hash(runtimeType, access_token, refresh_token);
 
   @JsonKey(ignore: true)
   @override
@@ -153,16 +155,16 @@ class _$_LoginResponse implements _LoginResponse {
 
 abstract class _LoginResponse implements LoginResponse {
   const factory _LoginResponse(
-      {required final String token,
-      required final String refreshToken}) = _$_LoginResponse;
+      {required final String access_token,
+      required final String refresh_token}) = _$_LoginResponse;
 
   factory _LoginResponse.fromJson(Map<String, dynamic> json) =
       _$_LoginResponse.fromJson;
 
   @override
-  String get token;
+  String get access_token;
   @override
-  String get refreshToken;
+  String get refresh_token;
   @override
   @JsonKey(ignore: true)
   _$$_LoginResponseCopyWith<_$_LoginResponse> get copyWith =>

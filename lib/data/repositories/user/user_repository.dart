@@ -4,8 +4,8 @@ import 'package:owwn_coding_challenge/domain/entities/responses/user/get_users_r
 
 abstract class UserRepository {
   Future<LoginResponse> emailPasswordLogin(
-      EmailRequestModel input,
-      );
+    EmailRequestModel input,
+  );
 
   Future<GetUsersResponse> getListOfUsers();
 }

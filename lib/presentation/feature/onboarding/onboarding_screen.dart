@@ -5,11 +5,10 @@ import 'package:owwn_coding_challenge/presentation/app_router.dart';
 class OnBoardingScreen extends StatelessWidget {
   const OnBoardingScreen({Key? key}) : super(key: key);
 
-
   static ScreenRoute get route => ScreenRoute(
-    name: '/onboarding',
-    builder: (_) => const OnBoardingScreen(),
-  );
+        name: '/onboarding',
+        builder: (_) => const OnBoardingScreen(),
+      );
 
   @override
   Widget build(BuildContext context) {

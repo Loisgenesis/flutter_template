@@ -36,9 +36,17 @@ class _SplashScreenState extends State<SplashScreen> {
           if (state.status.isSuccess) {
             _navigateToPage();
           }
-          return Image.asset(
-            AppImages.loadingScreenBackground,
-            fit: BoxFit.cover,
+          return Container(
+            width: double.infinity,
+            height: double.infinity,
+            decoration: const BoxDecoration(
+              image: DecorationImage(
+                image: AssetImage(
+                  AppImages.loadingScreenBackground,
+                ),
+                fit: BoxFit.cover,
+              ),
+            ),
           );
         },
       ),
