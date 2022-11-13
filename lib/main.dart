@@ -1,26 +1,26 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+import 'package:owwn_coding_challenge/app.dart';
+import 'package:owwn_coding_challenge/injection/dependencies.dart';
+import 'package:owwn_coding_challenge/presentation/common/language/language_manager.dart';
+import 'package:owwn_coding_challenge/presentation/resources/resources.dart';
 
-void main() {
-  runApp(const MyApp());
-}
-
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'OWWN Coding Challenge',
-      darkTheme: ThemeData.dark(),
-      themeMode: ThemeMode.dark,
-      home: const Scaffold(
-        body: Center(
-          child: Text(
-            'OWWN Coding Challenge',
-            style: TextStyle(fontSize: 20),
-          ),
-        ),
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await EasyLocalization.ensureInitialized();
+  await DependencyManager().inject();
+  SystemChrome.setPreferredOrientations([
+    DeviceOrientation.portraitDown,
+    DeviceOrientation.portraitUp,
+  ]).then(
+    (_) => runApp(
+      EasyLocalization(
+        supportedLocales: LanguageManager.instance!.supportedLocales,
+        path: AppConstants.languageAssetsPath,
+        startLocale: LanguageManager.instance!.enLocale,
+        child: const App(),
       ),
-    );
-  }
+    ),
+  );
 }
