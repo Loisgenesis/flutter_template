@@ -16,5 +16,4 @@ class AuthRepositoryImpl extends AuthRepository {
   Future<LoginResponse> emailPasswordLogin(EmailRequestModel input) {
     return _authRemoteDataSource.emailPasswordLogin(input);
   }
-
 }

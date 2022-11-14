@@ -6,5 +6,6 @@
   "emailLoginEmailLabel": "Email address",
   "emailLoginEmailHint": "Your email address",
   "tryAgain": "Try Again",
-  "retry": "Retry"
+  "retry": "Retry",
+  "loading": "Loading"
 }

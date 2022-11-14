@@ -6,7 +6,6 @@ part 'home_state.freezed.dart';
 
 @freezed
 class HomeState with _$HomeState {
-
   factory HomeState({
     required BaseStatus status,
     required List<User> users,

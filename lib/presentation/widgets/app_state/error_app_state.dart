@@ -32,14 +32,14 @@ class ErrorAppState extends StatelessWidget {
                   Text(
                     title,
                     textAlign: TextAlign.center,
-                    style: AppTextStyles.headline3
-                        .copyWith(color: colors.white),
+                    style:
+                        AppTextStyles.headline2.copyWith(color: colors.white),
                   ),
                   const SizedBox(height: 24),
                   Text(
                     subtitle,
                     textAlign: TextAlign.center,
-                    style: AppTextStyles.subTitle1.copyWith(
+                    style: AppTextStyles.body.copyWith(
                       color: colors.white,
                     ),
                   ),

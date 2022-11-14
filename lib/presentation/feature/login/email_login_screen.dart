@@ -7,7 +7,7 @@ import 'package:owwn_coding_challenge/presentation/app_router.dart';
 import 'package:owwn_coding_challenge/presentation/common/bloc/base_status.dart';
 import 'package:owwn_coding_challenge/presentation/common/navigation/navigation_manager.dart';
 import 'package:owwn_coding_challenge/presentation/feature/home/home_screen.dart';
-import 'package:owwn_coding_challenge/presentation/feature/login/email_login_cubit.dart';
+import 'package:owwn_coding_challenge/presentation/feature/login/cubit/email_login_cubit.dart';
 import 'package:owwn_coding_challenge/presentation/resources/resources.dart';
 import 'package:owwn_coding_challenge/presentation/widgets/background_focus_scope_dismisser.dart';
 import 'package:owwn_coding_challenge/presentation/widgets/app_state/loading_app_state.dart';
@@ -36,7 +36,7 @@ class _EmailLoginScreenState extends State<EmailLoginScreen> {
                   MaterialPageRoute(
                     builder: (_) => LoadingAppState(
                       title: 'loginLoadingTitle'.tr(),
-                      subtitle: 'loginLoadingTitle'.tr(),
+                      subtitle: 'loginLoadingSubTitle'.tr(),
                     ),
                   ),
                 );
@@ -98,7 +98,7 @@ class _EmailLoginWidgetState extends State<EmailLoginWidget> {
                     Text(
                       'login'.tr(),
                       style: AppTextStyles.headline1.copyWith(
-                        color: context.colors.labelPrimary,
+                        color: context.colors.white,
                       ),
                     ),
                     const SizedBox(height: 20),
@@ -122,7 +122,7 @@ class _EmailLoginWidgetState extends State<EmailLoginWidget> {
                           orElse: () => '',
                         ),
                         style: AppTextStyles.body
-                            .copyWith(color: context.colors.red15),
+                            .copyWith(color: context.colors.red),
                       ),
                   ],
                 ),

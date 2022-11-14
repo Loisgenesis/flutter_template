@@ -7,7 +7,7 @@ import 'package:owwn_coding_challenge/domain/entities/requests/email_request_mod
 import 'package:owwn_coding_challenge/domain/usecases/login/email_login_use_case.dart';
 import 'package:owwn_coding_challenge/domain/validation/email.dart';
 import 'package:owwn_coding_challenge/presentation/common/bloc/base_status.dart';
-import 'package:owwn_coding_challenge/presentation/feature/login/email_login_cubit.dart';
+import 'package:owwn_coding_challenge/presentation/feature/login/cubit/email_login_cubit.dart';
 
 class MockEmailLoginUseCase extends Mock implements EmailLoginUseCase {}
 

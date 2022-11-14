@@ -28,7 +28,7 @@ import '../presentation/common/bloc/authorization_cubit.dart' as _i19;
 import '../presentation/common/navigation/navigation_manager.dart' as _i7;
 import '../presentation/feature/home/cubit/home_cubit.dart' as _i17;
 import '../presentation/feature/home/cubit/home_state.dart' as _i18;
-import '../presentation/feature/login/email_login_cubit.dart' as _i20;
+import '../presentation/feature/login/cubit/email_login_cubit.dart' as _i20;
 import 'modules/register_module.dart'
     as _i21; // ignore_for_file: unnecessary_lambdas
 

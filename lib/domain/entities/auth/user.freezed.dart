@@ -20,12 +20,12 @@ User _$UserFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$User {
-  int get id => throw _privateConstructorUsedError;
+  String get id => throw _privateConstructorUsedError;
   String get name => throw _privateConstructorUsedError;
-  String get sex => throw _privateConstructorUsedError;
+  String get gender => throw _privateConstructorUsedError;
   String get status => throw _privateConstructorUsedError;
-  String get partnerId => throw _privateConstructorUsedError;
-  DateTime get createdAt => throw _privateConstructorUsedError;
+  String get partner_id => throw _privateConstructorUsedError;
+  DateTime get created_at => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -38,12 +38,12 @@ abstract class $UserCopyWith<$Res> {
       _$UserCopyWithImpl<$Res, User>;
   @useResult
   $Res call(
-      {int id,
+      {String id,
       String name,
-      String sex,
+      String gender,
       String status,
-      String partnerId,
-      DateTime createdAt});
+      String partner_id,
+      DateTime created_at});
 }
 
 /// @nodoc
@@ -61,35 +61,35 @@ class _$UserCopyWithImpl<$Res, $Val extends User>
   $Res call({
     Object? id = null,
     Object? name = null,
-    Object? sex = null,
+    Object? gender = null,
     Object? status = null,
-    Object? partnerId = null,
-    Object? createdAt = null,
+    Object? partner_id = null,
+    Object? created_at = null,
   }) {
     return _then(_value.copyWith(
       id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
-              as int,
+              as String,
       name: null == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
               as String,
-      sex: null == sex
-          ? _value.sex
-          : sex // ignore: cast_nullable_to_non_nullable
+      gender: null == gender
+          ? _value.gender
+          : gender // ignore: cast_nullable_to_non_nullable
               as String,
       status: null == status
           ? _value.status
           : status // ignore: cast_nullable_to_non_nullable
               as String,
-      partnerId: null == partnerId
-          ? _value.partnerId
-          : partnerId // ignore: cast_nullable_to_non_nullable
+      partner_id: null == partner_id
+          ? _value.partner_id
+          : partner_id // ignore: cast_nullable_to_non_nullable
               as String,
-      createdAt: null == createdAt
-          ? _value.createdAt
-          : createdAt // ignore: cast_nullable_to_non_nullable
+      created_at: null == created_at
+          ? _value.created_at
+          : created_at // ignore: cast_nullable_to_non_nullable
               as DateTime,
     ) as $Val);
   }
@@ -102,12 +102,12 @@ abstract class _$$_UserCopyWith<$Res> implements $UserCopyWith<$Res> {
   @override
   @useResult
   $Res call(
-      {int id,
+      {String id,
       String name,
-      String sex,
+      String gender,
       String status,
-      String partnerId,
-      DateTime createdAt});
+      String partner_id,
+      DateTime created_at});
 }
 
 /// @nodoc
@@ -121,35 +121,35 @@ class __$$_UserCopyWithImpl<$Res> extends _$UserCopyWithImpl<$Res, _$_User>
   $Res call({
     Object? id = null,
     Object? name = null,
-    Object? sex = null,
+    Object? gender = null,
     Object? status = null,
-    Object? partnerId = null,
-    Object? createdAt = null,
+    Object? partner_id = null,
+    Object? created_at = null,
   }) {
     return _then(_$_User(
       id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
-              as int,
+              as String,
       name: null == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
               as String,
-      sex: null == sex
-          ? _value.sex
-          : sex // ignore: cast_nullable_to_non_nullable
+      gender: null == gender
+          ? _value.gender
+          : gender // ignore: cast_nullable_to_non_nullable
               as String,
       status: null == status
           ? _value.status
           : status // ignore: cast_nullable_to_non_nullable
               as String,
-      partnerId: null == partnerId
-          ? _value.partnerId
-          : partnerId // ignore: cast_nullable_to_non_nullable
+      partner_id: null == partner_id
+          ? _value.partner_id
+          : partner_id // ignore: cast_nullable_to_non_nullable
               as String,
-      createdAt: null == createdAt
-          ? _value.createdAt
-          : createdAt // ignore: cast_nullable_to_non_nullable
+      created_at: null == created_at
+          ? _value.created_at
+          : created_at // ignore: cast_nullable_to_non_nullable
               as DateTime,
     ));
   }
@@ -161,30 +161,30 @@ class _$_User extends _User {
   const _$_User(
       {required this.id,
       required this.name,
-      required this.sex,
+      required this.gender,
       required this.status,
-      required this.partnerId,
-      required this.createdAt})
+      required this.partner_id,
+      required this.created_at})
       : super._();
 
   factory _$_User.fromJson(Map<String, dynamic> json) => _$$_UserFromJson(json);
 
   @override
-  final int id;
+  final String id;
   @override
   final String name;
   @override
-  final String sex;
+  final String gender;
   @override
   final String status;
   @override
-  final String partnerId;
+  final String partner_id;
   @override
-  final DateTime createdAt;
+  final DateTime created_at;
 
   @override
   String toString() {
-    return 'User(id: $id, name: $name, sex: $sex, status: $status, partnerId: $partnerId, createdAt: $createdAt)';
+    return 'User(id: $id, name: $name, gender: $gender, status: $status, partner_id: $partner_id, created_at: $created_at)';
   }
 
   @override
@@ -194,18 +194,18 @@ class _$_User extends _User {
             other is _$_User &&
             (identical(other.id, id) || other.id == id) &&
             (identical(other.name, name) || other.name == name) &&
-            (identical(other.sex, sex) || other.sex == sex) &&
+            (identical(other.gender, gender) || other.gender == gender) &&
             (identical(other.status, status) || other.status == status) &&
-            (identical(other.partnerId, partnerId) ||
-                other.partnerId == partnerId) &&
-            (identical(other.createdAt, createdAt) ||
-                other.createdAt == createdAt));
+            (identical(other.partner_id, partner_id) ||
+                other.partner_id == partner_id) &&
+            (identical(other.created_at, created_at) ||
+                other.created_at == created_at));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, id, name, sex, status, partnerId, createdAt);
+  int get hashCode => Object.hash(
+      runtimeType, id, name, gender, status, partner_id, created_at);
 
   @JsonKey(ignore: true)
   @override
@@ -223,28 +223,28 @@ class _$_User extends _User {
 
 abstract class _User extends User {
   const factory _User(
-      {required final int id,
+      {required final String id,
       required final String name,
-      required final String sex,
+      required final String gender,
       required final String status,
-      required final String partnerId,
-      required final DateTime createdAt}) = _$_User;
+      required final String partner_id,
+      required final DateTime created_at}) = _$_User;
   const _User._() : super._();
 
   factory _User.fromJson(Map<String, dynamic> json) = _$_User.fromJson;
 
   @override
-  int get id;
+  String get id;
   @override
   String get name;
   @override
-  String get sex;
+  String get gender;
   @override
   String get status;
   @override
-  String get partnerId;
+  String get partner_id;
   @override
-  DateTime get createdAt;
+  DateTime get created_at;
   @override
   @JsonKey(ignore: true)
   _$$_UserCopyWith<_$_User> get copyWith => throw _privateConstructorUsedError;

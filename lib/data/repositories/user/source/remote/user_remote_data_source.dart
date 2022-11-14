@@ -14,5 +14,8 @@ abstract class UserRemoteDataSource {
       _UserRemoteDataSource;
 
   @GET('/users')
-  Future<GetUsersResponse> getListOfUsers();
+  Future<GetUsersResponse> getListOfUsers({
+    @Query('limit') required int limit,
+    @Query('page') required int page,
+  });
 }

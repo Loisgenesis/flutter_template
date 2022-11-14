@@ -23,17 +23,6 @@ class NetworkModule {
         dio.httpClientAdapter = DefaultHttpClientAdapter();
         dio.options.baseUrl = injector.get<ApiConfig>().apiUrl;
         dio.interceptors.add(MetaInterceptor());
-        dio.interceptors.add(
-          AuthInterceptor(
-            httpClient: DioHttpClient(dio),
-            authPreferences: injector(),
-            refreshTokenHttpClient: injector(),
-            onTokenExpired: () {
-              // Handle log out
-              injector.get<AuthorizationCubit>().updateAuthorization();
-            },
-          ),
-        );
         if (isHttpRequestLoggingEnabled) {
           dio.interceptors.add(
             LogInterceptor(

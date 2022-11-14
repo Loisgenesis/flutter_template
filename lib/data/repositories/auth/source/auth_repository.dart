@@ -5,5 +5,4 @@ abstract class AuthRepository {
   Future<LoginResponse> emailPasswordLogin(
     EmailRequestModel input,
   );
-
 }

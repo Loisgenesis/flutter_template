@@ -1,13 +1,13 @@
-import 'package:owwn_coding_challenge/presentation/feature/splash/splash_screen.dart';
 import 'package:flutter/material.dart';
+import 'package:owwn_coding_challenge/presentation/feature/startup/startup_screen.dart';
 
 /// Contains classes and helpers for navigation.
 class AppRouter {
-  static PageRoute onGenerateRoute(RouteSettings settings) {
+  PageRoute onGenerateRoute(RouteSettings settings) {
     final args = settings.arguments;
     return args is ScreenRoute
         ? args.material()
-        : SplashScreen.route.material();
+        : StartUpScreen.route.material();
   }
 }
 

@@ -10,7 +10,7 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  dio: ^4.0.6
+  dio: ^4.0.4
   get_it: ^7.2.0
   injectable: ^1.5.4
   intl: ^0.17.0

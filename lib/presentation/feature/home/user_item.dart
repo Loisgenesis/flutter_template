@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:owwn_coding_challenge/domain/entities/auth/user.dart';
+import 'package:owwn_coding_challenge/presentation/resources/resources.dart';
 
 class UserCard extends StatelessWidget {
   const UserCard({
@@ -28,16 +29,15 @@ class UserCard extends StatelessWidget {
             child: Center(
               child: Text(
                 userDetails.name.substring(0, 2).toUpperCase(),
-                style: const TextStyle(fontWeight: FontWeight.bold),
+                style: AppTextStyles.body.copyWith(fontWeight: FontWeight.bold),
               ),
             ),
           ),
           const SizedBox(width: 10),
           Expanded(
-            child: DefaultTextStyle(
-              style: const TextStyle(color: Colors.white),
-              child: Text(userDetails.name),
-            ),
+            child: Text(userDetails.name,
+                style:
+                    AppTextStyles.body1.copyWith(color: context.colors.white)),
           ),
         ],
       ),

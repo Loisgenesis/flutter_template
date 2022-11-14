@@ -6,10 +6,14 @@ import 'package:owwn_coding_challenge/data/services/response_errors.dart';
 import 'package:owwn_coding_challenge/domain/entities/auth/user.dart';
 import 'package:owwn_coding_challenge/injection/injector.dart';
 import 'package:owwn_coding_challenge/presentation/app_router.dart';
+import 'package:owwn_coding_challenge/presentation/common/bloc/authorization_cubit.dart';
+import 'package:owwn_coding_challenge/presentation/common/bloc/base_status.dart';
+import 'package:owwn_coding_challenge/presentation/common/navigation/navigation_manager.dart';
 import 'package:owwn_coding_challenge/presentation/feature/home/cubit/home_cubit.dart';
 import 'package:owwn_coding_challenge/presentation/feature/home/cubit/home_state.dart';
 import 'package:owwn_coding_challenge/presentation/feature/home/user_item.dart';
-import 'package:owwn_coding_challenge/presentation/resources/app_images.dart';
+import 'package:owwn_coding_challenge/presentation/feature/login/email_login_screen.dart';
+import 'package:owwn_coding_challenge/presentation/resources/resources.dart';
 import 'package:owwn_coding_challenge/presentation/widgets/app_state/error_app_state.dart';
 import 'package:owwn_coding_challenge/presentation/widgets/app_state/loading_app_state.dart';
 
@@ -31,27 +35,29 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   void initState() {
     super.initState();
-    _homeCubit.load();
+    _homeCubit.load(limit: 50, page: 1);
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(),
       body: BlocBuilder<HomeCubit, HomeState>(
         bloc: _homeCubit,
         builder: (context, state) {
+          if (state.status.isSubmitted) {
+            _navigateToPage();
+          }
           return state.status.maybeWhen(
             orElse: () => const SizedBox.shrink(),
             loading: () => LoadingAppState(
-              title: 'loginLoadingTitle'.tr(),
-              subtitle: 'loginLoadingTitle'.tr(),
+              title: 'loading'.tr(),
+              subtitle: 'loginLoadingSubTitle'.tr(),
             ),
             failure: (e) => ErrorAppState(
               title: e.getErrorMessage(),
               subtitle: 'tryAgain'.tr(),
               onTap: () {
-                _homeCubit.load();
+                _homeCubit.load(limit: 50, page: 1);
               },
             ),
             success: () => CustomScrollView(
@@ -80,7 +86,7 @@ class _HomeScreenState extends State<HomeScreen> {
                         padding: const EdgeInsets.symmetric(vertical: 20),
                         child: Text(
                           value.toUpperCase(),
-                          style: const TextStyle(fontSize: 20),
+                          style: AppTextStyles.headline2,
                         ),
                       ),
                       separator: const SizedBox(height: 12),
@@ -99,5 +105,19 @@ class _HomeScreenState extends State<HomeScreen> {
         },
       ),
     );
+  }
+
+  void _navigateToPage() {
+    injector.get<AuthorizationCubit>().updateAuthorization();
+    final navigationManager = injector.get<NavigationManager>();
+
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      navigationManager.pushAndRemoveUntil(
+        MaterialPageRoute(
+          builder: (context) => const EmailLoginScreen(),
+        ),
+        (Route<dynamic> route) => false,
+      );
+    });
   }
 }

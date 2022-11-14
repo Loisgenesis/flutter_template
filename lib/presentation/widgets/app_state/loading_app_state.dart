@@ -42,15 +42,15 @@ class LoadingAppState extends StatelessWidget {
                   ),
                   Text(
                     title.toUpperCase(),
-                    style: AppTextStyles.headline3.copyWith(
-                      color: context.colors.labelPrimary,
+                    style: AppTextStyles.headline2.copyWith(
+                      color: context.colors.white,
                     ),
                   ),
                   const SizedBox(height: 8),
                   Text(
                     subtitle,
                     style: AppTextStyles.body1.copyWith(
-                      color: context.colors.labelPrimary.withOpacity(0.5),
+                      color: context.colors.white.withOpacity(0.5),
                     ),
                   ),
                 ],

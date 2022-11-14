@@ -1,8 +1,8 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:owwn_coding_challenge/app_router.dart';
 import 'package:owwn_coding_challenge/injection/injector.dart';
+import 'package:owwn_coding_challenge/presentation/app_router.dart';
 import 'package:owwn_coding_challenge/presentation/common/bloc/authorization_cubit.dart';
 import 'package:owwn_coding_challenge/presentation/common/navigation/navigation_manager.dart';
 import 'package:owwn_coding_challenge/presentation/resources/resources.dart';

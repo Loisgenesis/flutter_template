@@ -3,7 +3,6 @@ import 'dart:ui';
 import 'package:dio/dio.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/widgets.dart';
-import 'package:owwn_coding_challenge/data/interceptor/meta_interceptor.dart';
 import 'package:owwn_coding_challenge/data/model/auth/auth_tokens.dart';
 import 'package:owwn_coding_challenge/data/preferences/auth_preferences.dart';
 import 'package:owwn_coding_challenge/data/services/http_client/dio_http_client.dart';
@@ -123,13 +122,9 @@ class AuthInterceptor extends InterceptorsWrapper {
   Future<AuthTokens> _getNewTokens(RequestOptions requestOptions) async {
     try {
       final Map<String, dynamic>? response =
-          await refreshTokenHttpClient.get<Map<String, dynamic>>(
+          await refreshTokenHttpClient.post<Map<String, dynamic>>(
         '${requestOptions.baseUrl}/refresh',
-        headers: {
-          'Authorization': 'Bearer ${authPreferences.accessToken}',
-          MetaInterceptor.nMetaHeaderKey:
-              requestOptions.headers[MetaInterceptor.nMetaHeaderKey]
-        },
+        data: {'refresh_token': authPreferences.refreshToken},
       );
 
       if (response == null) {
