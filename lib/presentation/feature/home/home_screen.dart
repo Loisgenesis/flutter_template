@@ -6,7 +6,6 @@ import 'package:owwn_coding_challenge/data/services/response_errors.dart';
 import 'package:owwn_coding_challenge/domain/entities/auth/user.dart';
 import 'package:owwn_coding_challenge/injection/injector.dart';
 import 'package:owwn_coding_challenge/presentation/app_router.dart';
-import 'package:owwn_coding_challenge/presentation/common/bloc/authorization_cubit.dart';
 import 'package:owwn_coding_challenge/presentation/common/bloc/base_status.dart';
 import 'package:owwn_coding_challenge/presentation/common/navigation/navigation_manager.dart';
 import 'package:owwn_coding_challenge/presentation/feature/home/cubit/home_cubit.dart';
@@ -108,7 +107,6 @@ class _HomeScreenState extends State<HomeScreen> {
   }
 
   void _navigateToPage() {
-    injector.get<AuthorizationCubit>().updateAuthorization();
     final navigationManager = injector.get<NavigationManager>();
 
     WidgetsBinding.instance.addPostFrameCallback((_) {
