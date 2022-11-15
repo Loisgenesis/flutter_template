@@ -27,12 +27,12 @@ void main() {
       'should return Get User if successful',
       () async {
         when(
-          () => mockUserRepository.getListOfUsers(GetUserRequestModel.mock()),
+          () => mockUserRepository.getListOfUsers(1),
         ).thenAnswer((_) async => GetUsersResponse.mock());
-        await getUsersCase.run(GetUserRequestModel.mock());
+        await getUsersCase.run(1);
 
         verify(
-          () => mockUserRepository.getListOfUsers(GetUserRequestModel.mock()),
+          () => mockUserRepository.getListOfUsers(1),
         );
 
         verifyNoMoreInteractions(mockUserRepository);
@@ -43,12 +43,12 @@ void main() {
       'should halt function and throw exception on error',
       ()  {
         when(
-          () =>mockUserRepository.getListOfUsers(GetUserRequestModel.mock()),
+          () =>mockUserRepository.getListOfUsers(1),
         ).thenAnswer((_) async => throw const ResponseErrors<dynamic>.unexpectedError());
 
-        final result = getUsersCase.run(GetUserRequestModel.mock());
+        final result = getUsersCase.run(1);
         verify(
-          () => mockUserRepository.getListOfUsers(GetUserRequestModel.mock()),
+          () => mockUserRepository.getListOfUsers(1),
         );
 
         verifyNoMoreInteractions(mockUserRepository);

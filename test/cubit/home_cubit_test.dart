@@ -25,21 +25,19 @@ void main() {
       'emits [loading, success] when get user succeeds',
       build: () {
         when(
-          () => mockGetUsersCase.run(GetUserRequestModel.mock()),
+          () => mockGetUsersCase.run(1),
         ).thenAnswer(
           (_) async => GetUsersResponse.mock(),
         );
         return HomeCubit(mockGetUsersCase);
       },
-      act: (cubit) => cubit.load(limit:GetUserRequestModel.mock().limit,page: GetUserRequestModel.mock().page),
+      act: (cubit) => cubit.load(),
       expect: () => [
         HomeState.initial().copyWith(
-          status: const BaseStatus.loading(),
-          users: [],
+          firstFetchStatus: const BaseStatus.loading(),
         ),
         HomeState.initial().copyWith(
-          status: const BaseStatus.success(),
-          users: [],
+          firstFetchStatus: const BaseStatus.success(),
         ),
       ],
     );
@@ -48,23 +46,21 @@ void main() {
       'emits [loading, failure] when get user fails',
       build: () {
         when(
-          () => mockGetUsersCase.run(GetUserRequestModel.mock()),
+          () => mockGetUsersCase.run(1),
         ).thenAnswer(
           (_) async => throw const ResponseErrors.unexpectedError(),
         );
         return HomeCubit(mockGetUsersCase);
       },
-      act: (cubit) =>  cubit.load(limit:GetUserRequestModel.mock().limit,page: GetUserRequestModel.mock().page),
+      act: (cubit) =>  cubit.load(),
       expect: () => [
         HomeState.initial().copyWith(
-          status: const BaseStatus.loading(),
-          users: [],
+          firstFetchStatus: const BaseStatus.loading(),
         ),
         HomeState.initial().copyWith(
-          status: const BaseStatus.failure(
+          firstFetchStatus: const BaseStatus.failure(
             ResponseErrors.unexpectedError(),
           ),
-          users: [],
         ),
       ],
     );

@@ -10,14 +10,9 @@ import 'package:owwn_coding_challenge/presentation/feature/home/home_screen.dart
 import 'package:owwn_coding_challenge/presentation/feature/login/email_login_screen.dart';
 import 'package:owwn_coding_challenge/presentation/resources/resources.dart';
 
-class App extends StatefulWidget {
+class App extends StatelessWidget {
   const App({Key? key}) : super(key: key);
 
-  @override
-  State<App> createState() => _AppState();
-}
-
-class _AppState extends State<App> {
   @override
   Widget build(BuildContext context) {
     return MultiBlocProvider(
@@ -29,7 +24,6 @@ class _AppState extends State<App> {
       child: BlocListener<AuthorizationCubit, AuthorizationState>(
         listenWhen: (previous, current) => previous.status != current.status,
         listener: (context, state) {
-          print('state.status ${state.status}');
           if (state.status.isSuccess) {
             _navigateToPage();
           }

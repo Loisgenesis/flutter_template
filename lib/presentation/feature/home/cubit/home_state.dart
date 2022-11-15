@@ -7,12 +7,20 @@ part 'home_state.freezed.dart';
 @freezed
 class HomeState with _$HomeState {
   factory HomeState({
-    required BaseStatus status,
+    required BaseStatus firstFetchStatus,
     required List<User> users,
+    required List<User> newUsers,
+    required BaseStatus newStatus,
+    @Default(1) int page,
   }) = _HomeState;
   const HomeState._();
 
   factory HomeState.initial() {
-    return HomeState(status: const BaseStatus.initial(), users: []);
+    return HomeState(
+      firstFetchStatus: const BaseStatus.initial(),
+      users: [],
+      newUsers: [],
+      newStatus: const BaseStatus.initial(),
+    );
   }
 }

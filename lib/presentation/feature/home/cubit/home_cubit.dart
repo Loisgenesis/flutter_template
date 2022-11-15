@@ -1,7 +1,6 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:injectable/injectable.dart';
 import 'package:owwn_coding_challenge/data/services/response_errors.dart';
-import 'package:owwn_coding_challenge/domain/entities/requests/get_user_request_model.dart';
 import 'package:owwn_coding_challenge/domain/usecases/user/get_users_usecase.dart';
 import 'package:owwn_coding_challenge/presentation/common/bloc/base_status.dart';
 import 'package:owwn_coding_challenge/presentation/feature/home/cubit/home_state.dart';
@@ -15,31 +14,83 @@ class HomeCubit extends Cubit<HomeState> {
 
   final GetUsersCase getUsersCase;
 
-  Future<void> load({required int limit, required int page}) async {
-    if (state.status.isLoading) return;
-
+  Future<void> load() async {
+    if (state.firstFetchStatus.isLoading) return;
     emit(
       state.copyWith(
-        status: const BaseStatus.loading(),
+        firstFetchStatus: const BaseStatus.loading(),
       ),
     );
-
     try {
-      final value = await getUsersCase
-          .run(GetUserRequestModel.createModel(limit: limit, page: page));
-      emit(
-        state.copyWith(status: const BaseStatus.success(), users: value.users),
-      );
+      await getUsersCase.run(state.page).then((value) {
+        if (value.users.isNotEmpty) {
+          emit(
+            state.copyWith(
+              page: state.page + 1,
+            ),
+          );
+        }
+        emit(
+          state.copyWith(
+            firstFetchStatus: const BaseStatus.success(),
+            users: value.users,
+          ),
+        );
+      });
     } catch (e) {
       if (e == const ResponseErrors.unauthorized()) {
         emit(
-          state.copyWith(users: [], status: const BaseStatus.submitted()),
+          state.copyWith(firstFetchStatus: const BaseStatus.submitted()),
         );
       } else {
         emit(
           state.copyWith(
-            users: [],
-            status: BaseStatus.failure(ResponseErrors.fromDioError(e)),
+            firstFetchStatus:
+                BaseStatus.failure(ResponseErrors.fromDioError(e)),
+          ),
+        );
+      }
+    }
+  }
+
+  Future<void> fetchNewUsers() async {
+    if (state.newStatus.isLoading) return;
+
+    emit(
+      state.copyWith(
+        newStatus: const BaseStatus.loading(),
+      ),
+    );
+
+    try {
+      await getUsersCase.run(state.page).then((result) {
+        if (result.users.isNotEmpty) {
+          emit(
+            state.copyWith(
+              page: state.page + 1,
+              newUsers: result.users,
+              newStatus: const BaseStatus.success(),
+            ),
+          );
+        } else if (result.users.isEmpty) {
+          emit(
+            state.copyWith(
+              page: state.page,
+              newUsers: [],
+              newStatus: const BaseStatus.empty(),
+            ),
+          );
+        }
+      });
+    } catch (e) {
+      if (e == const ResponseErrors.unauthorized()) {
+        emit(
+          state.copyWith(newStatus: const BaseStatus.submitted()),
+        );
+      } else {
+        emit(
+          state.copyWith(
+            newStatus: BaseStatus.failure(ResponseErrors.fromDioError(e)),
           ),
         );
       }

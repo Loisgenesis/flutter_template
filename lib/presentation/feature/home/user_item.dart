@@ -35,9 +35,10 @@ class UserCard extends StatelessWidget {
           ),
           const SizedBox(width: 10),
           Expanded(
-            child: Text(userDetails.name,
-                style:
-                    AppTextStyles.body1.copyWith(color: context.colors.white)),
+            child: Text(
+              userDetails.name,
+              style: AppTextStyles.body1.copyWith(color: context.colors.white),
+            ),
           ),
         ],
       ),

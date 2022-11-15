@@ -1,0 +1,15 @@
+// **************************************************************************
+// JsonSerializableGenerator
+// **************************************************************************
+
+_$_TokensResponse _$$_TokensResponseFromJson(Map<String, dynamic> json) =>
+    _$_TokensResponse(
+      access_token: json['access_token'] as String,
+      refresh_token: json['refresh_token'] as String,
+    );
+
+Map<String, dynamic> _$$_TokensResponseToJson(_$_TokensResponse instance) =>
+    <String, dynamic>{
+      'access_token': instance.access_token,
+      'refresh_token': instance.refresh_token,
+    };

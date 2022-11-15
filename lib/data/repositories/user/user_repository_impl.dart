@@ -3,6 +3,7 @@ import 'package:owwn_coding_challenge/data/repositories/user/source/remote/user_
 import 'package:owwn_coding_challenge/data/repositories/user/user_repository.dart';
 import 'package:owwn_coding_challenge/domain/entities/requests/get_user_request_model.dart';
 import 'package:owwn_coding_challenge/domain/entities/responses/user/get_users_response.dart';
+import 'package:owwn_coding_challenge/presentation/resources/app_constants.dart';
 
 @LazySingleton(as: UserRepository)
 class UserRepositoryImpl extends UserRepository {
@@ -14,8 +15,11 @@ class UserRepositoryImpl extends UserRepository {
 
   @override
   Future<GetUsersResponse> getListOfUsers(
-      GetUserRequestModel getUserRequestModel) {
+    int page,
+  ) {
     return _usersRemoteDataSource.getListOfUsers(
-        limit: getUserRequestModel.limit, page: getUserRequestModel.page);
+      limit: AppConstants.fetchLimit,
+      page: page,
+    );
   }
 }

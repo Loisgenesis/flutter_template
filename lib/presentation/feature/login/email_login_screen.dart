@@ -9,22 +9,16 @@ import 'package:owwn_coding_challenge/presentation/common/navigation/navigation_
 import 'package:owwn_coding_challenge/presentation/feature/home/home_screen.dart';
 import 'package:owwn_coding_challenge/presentation/feature/login/cubit/email_login_cubit.dart';
 import 'package:owwn_coding_challenge/presentation/resources/resources.dart';
-import 'package:owwn_coding_challenge/presentation/widgets/background_focus_scope_dismisser.dart';
 import 'package:owwn_coding_challenge/presentation/widgets/app_state/loading_app_state.dart';
+import 'package:owwn_coding_challenge/presentation/widgets/background_focus_scope_dismisser.dart';
 import 'package:owwn_coding_challenge/presentation/widgets/primary_button.dart';
 
-class EmailLoginScreen extends StatefulWidget {
+class EmailLoginScreen extends StatelessWidget {
   const EmailLoginScreen({Key? key}) : super(key: key);
   static ScreenRoute get route => ScreenRoute(
         name: '/email_login',
         builder: (_) => const EmailLoginScreen(),
       );
-
-  @override
-  State<EmailLoginScreen> createState() => _EmailLoginScreenState();
-}
-
-class _EmailLoginScreenState extends State<EmailLoginScreen> {
   @override
   Widget build(BuildContext context) {
     return BlocProvider(

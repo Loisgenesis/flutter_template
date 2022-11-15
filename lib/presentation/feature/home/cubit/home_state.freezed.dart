@@ -16,8 +16,12 @@ final _privateConstructorUsedError = UnsupportedError(
 
 /// @nodoc
 mixin _$HomeState {
-  BaseStatus<dynamic> get status => throw _privateConstructorUsedError;
+  BaseStatus<dynamic> get firstFetchStatus =>
+      throw _privateConstructorUsedError;
   List<User> get users => throw _privateConstructorUsedError;
+  List<User> get newUsers => throw _privateConstructorUsedError;
+  BaseStatus<dynamic> get newStatus => throw _privateConstructorUsedError;
+  int get page => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $HomeStateCopyWith<HomeState> get copyWith =>
@@ -29,9 +33,15 @@ abstract class $HomeStateCopyWith<$Res> {
   factory $HomeStateCopyWith(HomeState value, $Res Function(HomeState) then) =
       _$HomeStateCopyWithImpl<$Res, HomeState>;
   @useResult
-  $Res call({BaseStatus<dynamic> status, List<User> users});
+  $Res call(
+      {BaseStatus<dynamic> firstFetchStatus,
+      List<User> users,
+      List<User> newUsers,
+      BaseStatus<dynamic> newStatus,
+      int page});
 
-  $BaseStatusCopyWith<dynamic, $Res> get status;
+  $BaseStatusCopyWith<dynamic, $Res> get firstFetchStatus;
+  $BaseStatusCopyWith<dynamic, $Res> get newStatus;
 }
 
 /// @nodoc
@@ -47,26 +57,49 @@ class _$HomeStateCopyWithImpl<$Res, $Val extends HomeState>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? status = null,
+    Object? firstFetchStatus = null,
     Object? users = null,
+    Object? newUsers = null,
+    Object? newStatus = null,
+    Object? page = null,
   }) {
     return _then(_value.copyWith(
-      status: null == status
-          ? _value.status
-          : status // ignore: cast_nullable_to_non_nullable
+      firstFetchStatus: null == firstFetchStatus
+          ? _value.firstFetchStatus
+          : firstFetchStatus // ignore: cast_nullable_to_non_nullable
               as BaseStatus<dynamic>,
       users: null == users
           ? _value.users
           : users // ignore: cast_nullable_to_non_nullable
               as List<User>,
+      newUsers: null == newUsers
+          ? _value.newUsers
+          : newUsers // ignore: cast_nullable_to_non_nullable
+              as List<User>,
+      newStatus: null == newStatus
+          ? _value.newStatus
+          : newStatus // ignore: cast_nullable_to_non_nullable
+              as BaseStatus<dynamic>,
+      page: null == page
+          ? _value.page
+          : page // ignore: cast_nullable_to_non_nullable
+              as int,
     ) as $Val);
   }
 
   @override
   @pragma('vm:prefer-inline')
-  $BaseStatusCopyWith<dynamic, $Res> get status {
-    return $BaseStatusCopyWith<dynamic, $Res>(_value.status, (value) {
-      return _then(_value.copyWith(status: value) as $Val);
+  $BaseStatusCopyWith<dynamic, $Res> get firstFetchStatus {
+    return $BaseStatusCopyWith<dynamic, $Res>(_value.firstFetchStatus, (value) {
+      return _then(_value.copyWith(firstFetchStatus: value) as $Val);
+    });
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $BaseStatusCopyWith<dynamic, $Res> get newStatus {
+    return $BaseStatusCopyWith<dynamic, $Res>(_value.newStatus, (value) {
+      return _then(_value.copyWith(newStatus: value) as $Val);
     });
   }
 }
@@ -78,10 +111,17 @@ abstract class _$$_HomeStateCopyWith<$Res> implements $HomeStateCopyWith<$Res> {
       __$$_HomeStateCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({BaseStatus<dynamic> status, List<User> users});
+  $Res call(
+      {BaseStatus<dynamic> firstFetchStatus,
+      List<User> users,
+      List<User> newUsers,
+      BaseStatus<dynamic> newStatus,
+      int page});
 
   @override
-  $BaseStatusCopyWith<dynamic, $Res> get status;
+  $BaseStatusCopyWith<dynamic, $Res> get firstFetchStatus;
+  @override
+  $BaseStatusCopyWith<dynamic, $Res> get newStatus;
 }
 
 /// @nodoc
@@ -95,18 +135,33 @@ class __$$_HomeStateCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? status = null,
+    Object? firstFetchStatus = null,
     Object? users = null,
+    Object? newUsers = null,
+    Object? newStatus = null,
+    Object? page = null,
   }) {
     return _then(_$_HomeState(
-      status: null == status
-          ? _value.status
-          : status // ignore: cast_nullable_to_non_nullable
+      firstFetchStatus: null == firstFetchStatus
+          ? _value.firstFetchStatus
+          : firstFetchStatus // ignore: cast_nullable_to_non_nullable
               as BaseStatus<dynamic>,
       users: null == users
           ? _value._users
           : users // ignore: cast_nullable_to_non_nullable
               as List<User>,
+      newUsers: null == newUsers
+          ? _value._newUsers
+          : newUsers // ignore: cast_nullable_to_non_nullable
+              as List<User>,
+      newStatus: null == newStatus
+          ? _value.newStatus
+          : newStatus // ignore: cast_nullable_to_non_nullable
+              as BaseStatus<dynamic>,
+      page: null == page
+          ? _value.page
+          : page // ignore: cast_nullable_to_non_nullable
+              as int,
     ));
   }
 }
@@ -114,12 +169,18 @@ class __$$_HomeStateCopyWithImpl<$Res>
 /// @nodoc
 
 class _$_HomeState extends _HomeState {
-  _$_HomeState({required this.status, required final List<User> users})
+  _$_HomeState(
+      {required this.firstFetchStatus,
+      required final List<User> users,
+      required final List<User> newUsers,
+      required this.newStatus,
+      this.page = 1})
       : _users = users,
+        _newUsers = newUsers,
         super._();
 
   @override
-  final BaseStatus<dynamic> status;
+  final BaseStatus<dynamic> firstFetchStatus;
   final List<User> _users;
   @override
   List<User> get users {
@@ -127,9 +188,22 @@ class _$_HomeState extends _HomeState {
     return EqualUnmodifiableListView(_users);
   }
 
+  final List<User> _newUsers;
+  @override
+  List<User> get newUsers {
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_newUsers);
+  }
+
+  @override
+  final BaseStatus<dynamic> newStatus;
+  @override
+  @JsonKey()
+  final int page;
+
   @override
   String toString() {
-    return 'HomeState(status: $status, users: $users)';
+    return 'HomeState(firstFetchStatus: $firstFetchStatus, users: $users, newUsers: $newUsers, newStatus: $newStatus, page: $page)';
   }
 
   @override
@@ -137,13 +211,23 @@ class _$_HomeState extends _HomeState {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_HomeState &&
-            (identical(other.status, status) || other.status == status) &&
-            const DeepCollectionEquality().equals(other._users, _users));
+            (identical(other.firstFetchStatus, firstFetchStatus) ||
+                other.firstFetchStatus == firstFetchStatus) &&
+            const DeepCollectionEquality().equals(other._users, _users) &&
+            const DeepCollectionEquality().equals(other._newUsers, _newUsers) &&
+            (identical(other.newStatus, newStatus) ||
+                other.newStatus == newStatus) &&
+            (identical(other.page, page) || other.page == page));
   }
 
   @override
   int get hashCode => Object.hash(
-      runtimeType, status, const DeepCollectionEquality().hash(_users));
+      runtimeType,
+      firstFetchStatus,
+      const DeepCollectionEquality().hash(_users),
+      const DeepCollectionEquality().hash(_newUsers),
+      newStatus,
+      page);
 
   @JsonKey(ignore: true)
   @override
@@ -154,14 +238,23 @@ class _$_HomeState extends _HomeState {
 
 abstract class _HomeState extends HomeState {
   factory _HomeState(
-      {required final BaseStatus<dynamic> status,
-      required final List<User> users}) = _$_HomeState;
+      {required final BaseStatus<dynamic> firstFetchStatus,
+      required final List<User> users,
+      required final List<User> newUsers,
+      required final BaseStatus<dynamic> newStatus,
+      final int page}) = _$_HomeState;
   _HomeState._() : super._();
 
   @override
-  BaseStatus<dynamic> get status;
+  BaseStatus<dynamic> get firstFetchStatus;
   @override
   List<User> get users;
+  @override
+  List<User> get newUsers;
+  @override
+  BaseStatus<dynamic> get newStatus;
+  @override
+  int get page;
   @override
   @JsonKey(ignore: true)
   _$$_HomeStateCopyWith<_$_HomeState> get copyWith =>
